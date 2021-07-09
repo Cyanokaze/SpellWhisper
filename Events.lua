@@ -435,11 +435,6 @@ function Addon:AddToThreatList(MobUnit)
 				local IsTanking, Status = UnitDetailedThreatSituation(RaidUnit, MobUnit)
 				if IsTanking and Status == 3 then
 					TempThreat["TargetUnit"] = RaidUnit
-					local MobName = (UnitName(MobUnit))
-					local TargetName = (UnitName(RaidUnit))
-					local MobIconIndex = GetRaidTargetIndex(MobUnit) or 0
-					local TargetIconIndex = GetRaidTargetIndex(RaidUnit) or 0
-					Addon:SendThreatAnnounce(MobName, MobIconIndex, TargetName, TargetIconIndex)
 				end
 			end
 			t_insert(ThreatList, TempThreat)
@@ -483,12 +478,7 @@ function Addon:AddToThreatList(MobUnit)
 			do
 				local IsTanking, Status = UnitDetailedThreatSituation("player", MobUnit)
 				if IsTanking and Status == 3 and TempThreat.TargetUnit ~= "player" then
-					TempThreat.TargetUnit = "player"
-					local MobName = (UnitName(MobUnit))
-					local TargetName = (UnitName("player"))
-					local MobIconIndex = GetRaidTargetIndex(MobUnit) or 0
-					local TargetIconIndex = GetRaidTargetIndex("player") or 0
-					Addon:SendThreatAnnounce(MobName, MobIconIndex, TargetName, TargetIconIndex)
+					TempThreat["TargetUnit"] = "player"
 				end
 			end
 			for j = 1, GetNumGroupMembers() - 1 do
@@ -496,11 +486,6 @@ function Addon:AddToThreatList(MobUnit)
 				local IsTanking, Status = UnitDetailedThreatSituation(PartyUnit, MobUnit)
 				if IsTanking and Status == 3 then
 					TempThreat["TargetUnit"] = PartyUnit
-					local MobName = (UnitName(MobUnit))
-					local TargetName = (UnitName(PartyUnit))
-					local MobIconIndex = GetRaidTargetIndex(MobUnit) or 0
-					local TargetIconIndex = GetRaidTargetIndex(PartyUnit) or 0
-					Addon:SendThreatAnnounce(MobName, MobIconIndex, TargetName, TargetIconIndex)
 				end
 			end
 			t_insert(ThreatList, TempThreat)
