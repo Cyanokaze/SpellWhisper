@@ -415,11 +415,7 @@ function Addon:AddToThreatList(MobUnit)
 					if IsTanking and Status == 3 and RaidUnit ~= ThreatList[i].TargetUnit and NowTime - ThreatList[i].Time >= 4 then
 						ThreatList[i].TargetUnit = RaidUnit
 						ThreatList[i].Time = NowTime
-						local MobName = (UnitName(MobUnit))
-						local TargetName = (UnitName(RaidUnit))
-						local MobIconIndex = GetRaidTargetIndex(MobUnit) or 0
-						local TargetIconIndex = GetRaidTargetIndex(RaidUnit) or 0
-						Addon:SendThreatAnnounce(MobName, MobIconIndex, TargetName, TargetIconIndex)
+						Addon:SendThreatAnnounce((UnitName(MobUnit)), GetRaidTargetIndex(MobUnit) or 0, (UnitName(PartyUnit)), GetRaidTargetIndex(PartyUnit) or 0)
 					end
 				end
 				break
@@ -448,11 +444,7 @@ function Addon:AddToThreatList(MobUnit)
 					if IsTanking and Status == 3 and ThreatList[i].TargetUnit ~= "player" and NowTime - ThreatList[i].Time >= 4 then
 						ThreatList[i].TargetUnit = "player"
 						ThreatList[i].Time = NowTime
-						local MobName = (UnitName(MobUnit))
-						local TargetName = (UnitName("player"))
-						local MobIconIndex = GetRaidTargetIndex(MobUnit) or 0
-						local TargetIconIndex = GetRaidTargetIndex("player") or 0
-						Addon:SendThreatAnnounce(MobName, MobIconIndex, TargetName, TargetIconIndex)
+						Addon:SendThreatAnnounce((UnitName(MobUnit)), GetRaidTargetIndex(MobUnit) or 0, (UnitName("player")), GetRaidTargetIndex("player") or 0)
 					end
 				end
 				for j = 1, GetNumGroupMembers() - 1 do
@@ -461,11 +453,7 @@ function Addon:AddToThreatList(MobUnit)
 					if IsTanking and Status == 3 and PartyUnit ~= ThreatList[i].TargetUnit and NowTime - ThreatList[i].Time >= 4 then
 						ThreatList[i].TargetUnit = PartyUnit
 						ThreatList[i].Time = NowTime
-						local MobName = (UnitName(MobUnit))
-						local TargetName = (UnitName(PartyUnit))
-						local MobIconIndex = GetRaidTargetIndex(MobUnit) or 0
-						local TargetIconIndex = GetRaidTargetIndex(PartyUnit) or 0
-						Addon:SendThreatAnnounce(MobName, MobIconIndex, TargetName, TargetIconIndex)
+						Addon:SendThreatAnnounce((UnitName(MobUnit)), GetRaidTargetIndex(MobUnit) or 0, (UnitName(PartyUnit)), GetRaidTargetIndex(PartyUnit) or 0)
 					end
 				end
 			end
