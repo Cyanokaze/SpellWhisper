@@ -435,7 +435,9 @@ function Addon:AddToThreatList(MobUnit)
 					TempThreat["TargetUnit"] = RaidUnit
 				end
 			end
-			t_insert(ThreatList, TempThreat)
+			if TempThreat.TargetUnit then
+				t_insert(ThreatList, TempThreat)
+			end
 		end
 	elseif IsInGroup() then
 		for i = #ThreatList, 1, -1 do
@@ -480,7 +482,9 @@ function Addon:AddToThreatList(MobUnit)
 					TempThreat["TargetUnit"] = PartyUnit
 				end
 			end
-			t_insert(ThreatList, TempThreat)
+			if TempThreat.TargetUnit then
+				t_insert(ThreatList, TempThreat)
+			end
 		end
 	end
 end
