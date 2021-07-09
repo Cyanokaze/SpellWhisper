@@ -426,6 +426,7 @@ function Addon:AddToThreatList(MobUnit)
 				["GUID"] = MobGUID,
 				["MobUnit"] = MobUnit,
 				["Time"] = NowTime,
+				["TargetUnit"] = nil,
 			}
 			for i = 1, GetNumGroupMembers() do
 				local RaidUnit = "raid" .. i
@@ -464,6 +465,7 @@ function Addon:AddToThreatList(MobUnit)
 				["GUID"] = MobGUID,
 				["MobUnit"] = MobUnit,
 				["Time"] = NowTime,
+				["TargetUnit"] = nil,
 			}
 			do
 				local IsTanking, Status = UnitDetailedThreatSituation("player", MobUnit)
