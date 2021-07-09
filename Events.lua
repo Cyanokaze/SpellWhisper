@@ -460,7 +460,7 @@ function Addon:AddToThreatList(MobUnit)
 						Addon:SendThreatAnnounce(MobName, MobIconIndex, TargetName, TargetIconIndex)
 					end
 				end
-				for j = 1, GetNumGroupMembers() do
+				for j = 1, GetNumGroupMembers() - 1 do
 					local PartyUnit = "party" .. j
 					local IsTanking, Status = UnitDetailedThreatSituation(PartyUnit, MobUnit)
 					if IsTanking and Status == 3 and PartyUnit ~= ThreatList[i].TargetUnit and NowTime - ThreatList[i].Time >= 4 then
@@ -491,7 +491,7 @@ function Addon:AddToThreatList(MobUnit)
 					Addon:SendThreatAnnounce(MobName, MobIconIndex, TargetName, TargetIconIndex)
 				end
 			end
-			for j = 1, GetNumGroupMembers() do
+			for j = 1, GetNumGroupMembers() - 1 do
 				local PartyUnit = "party" .. j
 				local IsTanking, Status = UnitDetailedThreatSituation(PartyUnit, MobUnit)
 				if IsTanking and Status == 3 then
