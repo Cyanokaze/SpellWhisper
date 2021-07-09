@@ -415,7 +415,7 @@ function Addon:AddToThreatList(MobUnit)
 					if IsTanking and Status == 3 and RaidUnit ~= ThreatList[i].TargetUnit and NowTime - ThreatList[i].Time >= 4 then
 						ThreatList[i].TargetUnit = RaidUnit
 						ThreatList[i].Time = NowTime
-						Addon:SendThreatAnnounce((UnitName(MobUnit)), GetRaidTargetIndex(MobUnit) or 0, (UnitName(PartyUnit)), GetRaidTargetIndex(PartyUnit) or 0)
+						Addon:SendThreatAnnounce((UnitName(MobUnit)), GetRaidTargetIndex(MobUnit) or 0, (UnitName(RaidUnit)), GetRaidTargetIndex(RaidUnit) or 0)
 					end
 				end
 				break
