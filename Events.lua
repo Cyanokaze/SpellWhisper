@@ -422,12 +422,13 @@ function Addon:AddToThreatList(MobUnit)
 			end
 		end
 		if not IsExists then
-			local TempThreat = {}
-			TempThreat["GUID"] = MobGUID
-			TempThreat["MobUnit"] = MobUnit
-			TempThreat["Time"] = NowTime
-			for j = 1, GetNumGroupMembers() do
-				local RaidUnit = "raid" .. j
+			local TempThreat = {
+				["GUID"] = MobGUID,
+				["MobUnit"] = MobUnit,
+				["Time"] = NowTime,
+			}
+			for i = 1, GetNumGroupMembers() do
+				local RaidUnit = "raid" .. i
 				local IsTanking, Status = UnitDetailedThreatSituation(RaidUnit, MobUnit)
 				if IsTanking and Status == 3 then
 					TempThreat["TargetUnit"] = RaidUnit
@@ -459,18 +460,19 @@ function Addon:AddToThreatList(MobUnit)
 			end
 		end
 		if not IsExists then
-			local TempThreat = {}
-			TempThreat["GUID"] = MobGUID
-			TempThreat["MobUnit"] = MobUnit
-			TempThreat["Time"] = NowTime
+			local TempThreat = {
+				["GUID"] = MobGUID,
+				["MobUnit"] = MobUnit,
+				["Time"] = NowTime,
+			}
 			do
 				local IsTanking, Status = UnitDetailedThreatSituation("player", MobUnit)
 				if IsTanking and Status == 3 and TempThreat.TargetUnit ~= "player" then
 					TempThreat["TargetUnit"] = "player"
 				end
 			end
-			for j = 1, GetNumGroupMembers() - 1 do
-				local PartyUnit = "party" .. j
+			for i = 1, GetNumGroupMembers() - 1 do
+				local PartyUnit = "party" .. i
 				local IsTanking, Status = UnitDetailedThreatSituation(PartyUnit, MobUnit)
 				if IsTanking and Status == 3 then
 					TempThreat["TargetUnit"] = PartyUnit
