@@ -17,7 +17,7 @@ L["Feedback & Update Link"] = "https://www.curseforge.com/wow/addons/spellwhispe
 
 local locale = GetLocale()
 
-if locale == "enUs" then
+if locale == "enUS" then
 	--频道名称
     L["off"] = true
     L["say"] = true
