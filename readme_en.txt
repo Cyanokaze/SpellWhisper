@@ -18,3 +18,16 @@ http://https://www.curseforge.com/wow/addons/maillogger
 2.1.7 You can use "Escape" key to close Version Check window.
 2.1.4 Add Minimap button.
 2.1.2 Remove Trades/Mails Log Function, this function now has an indepentent Addon named "MailLogger", please use that. http://https://www.curseforge.com/wow/addons/maillogger
+
+
+## Templates you can use in Spellwhisper
+
+`#caster#` the player who cast the spell
+
+`#spell#` the spell who casting
+
+`#target#` the target affected by spell
+
+`#spell_2#` the another spell in combat log.
+
+`#pos#` the minimap position of battle ground.
